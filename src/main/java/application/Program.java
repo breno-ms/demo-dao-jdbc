@@ -54,6 +54,12 @@ public class Program {
             System.out.println(s);
         }
 
+        System.out.println("\nTestando o sellerDao.findAll():");
+        List<Seller> allSellers = sellerDao.findAll();
+        for (Seller s : allSellers) {
+            System.out.println(s);
+        }
+
     }
 
 }
