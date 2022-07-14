@@ -1,6 +1,7 @@
 package application;
 
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -15,10 +16,12 @@ public class Program {
 
         System.out.println("Testando o sellerDao.findById():");
         SellerDao sellerDao = DaoFactory.createSellerDao();
+
         Seller seller1 = sellerDao.findById(1);
         Seller seller2 = sellerDao.findById(2);
         Seller seller3 = sellerDao.findById(3);
         Seller seller4 = sellerDao.findById(4);
+
         System.out.println(seller1);
         System.out.println(seller2);
         System.out.println(seller3);
@@ -71,6 +74,55 @@ public class Program {
 
         System.out.println("\nTestando o sellerDao.deleteById():");
         sellerDao.deleteById(9);
+
+        System.out.println("\nTestando os métodos do DepartmentDaoJDBC");
+
+        System.out.println("\nTestando o departmentDao.findById():");
+        DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+        List<Department> departments = new ArrayList<>();
+
+        Department department1_ = departmentDao.findById(1);
+        Department department2_ = departmentDao.findById(2);
+        Department department3_ = departmentDao.findById(3);
+        Department department4_ = departmentDao.findById(4);
+        Department department5_ = departmentDao.findById(5);
+        Department department6_ = departmentDao.findById(6);
+
+        System.out.println(department1_);
+        System.out.println(department2_);
+        System.out.println(department3_);
+        System.out.println(department4_);
+        System.out.println(department5_);
+        System.out.println(department6_);
+
+        System.out.println("\nTestando o departmentDao.findAll():");
+        departments = departmentDao.findAll();
+        for (Department d : departments) {
+            System.out.println(d);
+        }
+
+        System.out.println("\nTestando o departmentDao.insert():");
+        Department department7 = new Department(7, "Operacional");
+        departmentDao.insert(department7);
+        departments = departmentDao.findAll();
+        for (Department d : departments) {
+            System.out.println(d);
+        }
+
+        System.out.println("\nTestando o departmentDao.update():");
+        Department department8 = new Department(6, "Relações Públicas");
+        departmentDao.update(department8);
+        departments = departmentDao.findAll();
+        for (Department d : departments) {
+            System.out.println(d);
+        }
+
+        System.out.println("\nTestando o departmentDao.removeById():");
+        departmentDao.deleteById(7);
+        departments = departmentDao.findAll();
+        for (Department d : departments) {
+            System.out.println(d);
+        }
 
     }
 
