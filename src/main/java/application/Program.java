@@ -12,6 +12,7 @@ public class Program {
     public static void main(String[] args) {
 
         Department department = new Department(1, "Administrativo");
+        System.out.println("Testando o sellerDao.findById():");
         SellerDao sellerDao = DaoFactory.createSellerDao();
         Seller seller = sellerDao.findById(3);
         System.out.println(seller);
