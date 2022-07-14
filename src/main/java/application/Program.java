@@ -60,14 +60,17 @@ public class Program {
             System.out.println(s);
         }
 
-        System.out.println("\nTestando o sellerDao.insert():");
-        Seller seller5 = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department1);
-        sellerDao.insert(seller5);
-        System.out.println("New seller inserted in the database. New id: " + seller5.getId());
+        //System.out.println("\nTestando o sellerDao.insert():");
+        //Seller seller5 = new Seller(null, "Greg Grey", "greg@gmail.com", new Date(), 4000.0, department1);
+        //sellerDao.insert(seller5);
+        //System.out.println("New seller inserted in the database. New id: " + seller5.getId());
 
         System.out.println("\nTestando o sellerDao.update():");
         Seller seller6 = new Seller(8, "Sophia Pink", "sophia@gmail.com", new Date(), 4500.0, department4);
         sellerDao.update(seller6);
+
+        System.out.println("\nTestando o sellerDao.deleteById():");
+        sellerDao.deleteById(9);
 
     }
 
